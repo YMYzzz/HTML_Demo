@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+
+    <link rel="stylesheet" href="signIn.css" type="text/css">
+    <script src="jquery.js"></script>
+    <script src="info.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+    <h2>请填写个人信息</h2>
+    <form id="form1" onsubmit="return checkForm()">
+        <div>
+            <span>姓名：</span><input type="text" required="required" maxlength="5" name="name" id="name">
+        </div>
+        <div>
+            <span>年龄：</span><input type="number" required="required" min="0" max="120" name="age" id="age">
+        </div>
+        <div>
+            <span>省份：</span><select name="province" id="province"></select>
+        </div>
+        <div>
+            <span>城市：</span><select name="city" id="city"></select>
+        </div>
+        <div class="hobby">
+            <span>爱好：</span>
+            <label>篮球</label><input type="checkbox" name="basketball">
+            <label>足球</label><input type="checkbox" name="soccer">
+            <label>练习生</label><input type="checkbox" name="cxk">
+        </div>
+
+        <div class="btn">
+            <input type="reset" value="清空">
+            <input id="sub" type="submit" value="注册">
+        </div>
+    </form>
+</body>
+
+</html>

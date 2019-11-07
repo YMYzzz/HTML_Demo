@@ -1,0 +1,59 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+}
+
+h2 {
+    display: block;
+    height: 10%;
+    width: 20%;
+    text-align: center;
+    margin: auto;
+}
+
+form {
+    margin-top: 5%;
+    margin-left: 20%;
+}
+
+form div {
+    display: block;
+    height: 50px;
+    width: 40%;
+    text-align: left;
+}
+
+form div span {
+    font-weight: bolder;
+    color: slategray;
+}
+
+/* 省份和城市宽度 */
+#province,#city{
+    width: 80px;
+}
+
+select,input {
+    height: 25px;
+    margin-left: 5px;
+}
+
+.hobby input {
+    display: inline-block;
+    position: relative;
+    top: 7px;
+}
+
+.btn{
+    display: block;
+    height: 50px;
+}
+
+.btn input{
+    display: inline-block;
+    width: 100px;
+    height: 30px;
+    font-size: 20px;
+    margin-left: 20px;
+}
