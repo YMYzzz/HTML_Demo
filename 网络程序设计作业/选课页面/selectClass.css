@@ -1,0 +1,59 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+html, body{
+    width: 100%;
+    height: 100%;
+}
+
+/* 选课菜单 */
+.menu{
+    display: block;
+    height: 40%;
+    width: 100%;
+    color: rgb(248, 242, 220);
+}
+
+.menu .kindOfLessons{
+    height: 30%;
+    background-color: rgb(22,36,92);
+}
+
+.menu .kindOfLessons span{
+    padding: 0px;
+    display: inline-block;
+    width: 50%;
+}
+
+.menu .lessons{
+    height: 70%;
+    background-color: rgb(22,36,92);
+}
+
+
+/* 实时预览课表 */
+.time_table{
+    height: 60%;
+    width: 100%;
+    background-color: rgb(13, 23, 64);
+    color: rgb(248, 242, 220);
+}
+
+.time_table table{
+    padding: 0px;
+    margin: auto;
+    width: 70%;
+    height: 90%;
+    text-align: center;
+    border: 10px;
+}
+
+.time_table table th{
+    font-size: 1.5em;
+}
+
+.time_table table tr{
+    height: 20%;
+}
