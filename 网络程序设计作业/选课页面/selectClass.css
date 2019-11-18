@@ -8,30 +8,20 @@ html, body{
     height: 100%;
 }
 
-/* 选课菜单 */
-.menu{
-    display: block;
-    height: 40%;
-    width: 100%;
+h3{
+    height: 10%;
+    font-size: 2em;
+    background-color: rgb(22,36,92);
     color: rgb(248, 242, 220);
+    text-align: center;
 }
 
-.menu .kindOfLessons{
+/* 所有课程枚举 */
+.lessons{
     height: 30%;
     background-color: rgb(22,36,92);
-}
-
-.menu .kindOfLessons span{
-    padding: 0px;
-    display: inline-block;
-    width: 50%;
-}
-
-/* 所有课程列举 */
-.menu .lessons{
-    height: 70%;
-    background-color: rgb(22,36,92);
-    padding: 0.6%;
+    padding: 0.3%, 0.3%, 0, 0.3%;
+    color: rgb(248, 242, 220);
 }
 
 .lessons span{
@@ -71,3 +61,6 @@ html, body{
     height: 20%;
 }
 
+.time_table table td,th{
+    width: 12%;
+}

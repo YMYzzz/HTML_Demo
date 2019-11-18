@@ -18,7 +18,7 @@ class lesson {
 }
 
 var lessons = new Array();
-lessons[0] = new lesson("数据结构", "Mon", "2");
+lessons[0] = new lesson("魔术背后的化学原理", "Mon", "2");
 lessons[1] = new lesson("创新工程学","Mon","1");
 lessons[2] = new lesson("人文社会科学基础","Mon","4");
 lessons[3] = new lesson("生命科学导论","Tue","3");
