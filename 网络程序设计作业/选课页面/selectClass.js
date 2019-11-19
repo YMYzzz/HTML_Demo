@@ -1,54 +1,28 @@
 $(function () {
     // 添加所有课程
-    for (var x in lessons) {
-        $(".lessons").append("<span class = 'lesson'>" + lessons[x].getName() + "</span>");
-    }
+    addLessons();
 
-    // 将点击的课程添加进课程表
-    // $('.lesson').click(function (e) {
-    //     var lesson_name = $(this).text();
-    //     for (var x in lessons) {
-    //         if (lesson_name == lessons[x].getName()) {
-    //             // 获取星期几和第几节课
-    //             var d = lessons[x].getDay() + lessons[x].getTime();
+    // 选择课程功能
+    selectLesson();
 
-    //             // 先判断当前选择课程是否已被选择过
-    //             if (typeof ($(this).attr('select')) == "undefined") {
-    //                 // 再判断课程表当前位置是否有课
-    //                 if ($("#" + d).text() == "") {
-    //                     $("#" + d).append(lessons[x].getName());
-    //                     $("#" + d).fadeIn();
-    //                     $(this).attr("select", "selected");         //添加标志位select
-    //                     $(this).animate({
-    //                         backgroundColor:"rgb(163,159,147)"
-    //                     },1000)
-    //                     // $(this).css("background-color", "pink");
-    //                 } else alert("当前选择的 " + lessons[x].getName() + " 与 " + $("#" + d).text() + " 冲突，请重新选择")
-    //             }
-    //             // 已被选择的课程再次点击取消选择
-    //             else {                  
-    //                 $(this).prop("style").removeProperty("background-color");
-    //                 $("#" + d).text("");
-    //                 $(this).removeAttr('select');
-    //             }
+    // 判断提交时是否有8节课
+    submitNum();
 
-    //         }
-    //     }
-    // });
+})
 
-    // 鼠标悬浮在课程上时显示课程相关信息
-    $('.lesson').click(function (e) {
+function selectLesson() {
+    $('.lesson').click(function () {
         var lesson_name = $(this).text();
         for (var x in lessons) {
             if (lesson_name == lessons[x].getName()) {
                 // 获取星期几和第几节课
                 var d = lessons[x].getDay() + lessons[x].getTime();
-
                 // 先判断当前选择课程是否已被选择过
                 if (typeof ($(this).attr('select')) == "undefined") {
                     $("#" + d).append(lessons[x].getName());
                     $("#" + d).fadeIn();
                     $(this).attr("select", "selected"); //添加标志位select
+                    lessons[x].setChoose(true); //当前课已被选择
                     $(this).animate({
                         backgroundColor: "rgb(163,159,147)"
                     }, 1000);
@@ -72,12 +46,12 @@ $(function () {
                 else if ($(this).attr('select') == "selected") {
                     $(this).prop("style").removeProperty("background-color");
                     $("#" + d).text("");
+                    lessons[x].setChoose(false); //取消当前课的计数标记
                     $(this).removeAttr('select');
                     // 恢复相同时间的其他课程
                     let that = this;
                     var $beside_lesson = $(".lessons span[select = 'besides']");
-                    $beside_lesson.each(function (index, element) {
-                        // element == this
+                    $beside_lesson.each(function () {
                         for (var y in lessons) {
                             if ($(that).text() == lessons[y].getName()) {
                                 for (var x in lessons) {
@@ -90,15 +64,31 @@ $(function () {
                                         }
                                     }
                                 }
-
                             }
                         }
                     });
-
                 }
-
             }
         }
     });
+}
 
-})
+function addLessons() {
+    for (const x in lessons) {
+        $(".lessons").append("<span class = 'lesson'>" + lessons[x].getName() + "</span>");
+    }
+}
+
+function submitNum() {
+    $('h3').click(function () {
+        var num = 0;
+        for (const x in lessons) {
+            if (lessons[x].getChoose())
+                num++;
+        }
+        if (num < 8)
+            alert("请至少选择8门课");
+        else
+            alert("提交成功");
+    });
+}
